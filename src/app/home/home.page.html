@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Blank </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,9 +11,18 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <ion-button (click)="request()">
-      test
+  <div class="container">
+    <h2>Image Upload</h2>
+    <input type="file" (change)="onFileSelected($event)" />
+    <ion-button (click)="uploadImage()" [disabled]="!selectedFile">
+      Upload without Multipart
+    </ion-button>
+    <ion-button
+      (click)="uploadImage(true)"
+      [disabled]="!selectedFile"
+      color="warning"
+    >
+      Upload with Multipart
     </ion-button>
   </div>
 </ion-content>
